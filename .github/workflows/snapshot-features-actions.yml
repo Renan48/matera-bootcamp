@@ -1,15 +1,10 @@
-name: Ganerate Snapshot Feature
-on: [push]
+runs-on: ubuntu-latest
+steps:
+  - name: Checkout source code
+    uses: actions/checkout@v2
 
-jobs:
-  Build-Dockerfile:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout source code
-        uses: actions/checkout@v2
+  - name: Install JQ to parse JSON
+    run: sudo apt-get install -y jq
 
-    - name: Install JQ to parse JSON
-      run: sudo apt-get install -y jq
-
-    - name: Building Docker image usin Dockerfile
-      run: docker build -t bootcamp:3.0.0 .
+  - name: Building Docker Image usin Dockerfile
+    run: docker build -t bootcamp:3.0.0 .
