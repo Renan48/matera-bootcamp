@@ -1,0 +1,8 @@
+name: Ativida 1
+
+jobs:
+  Build-Dockerfile:
+    runs-on: ubutu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
